@@ -60,98 +60,76 @@ class _ListofGraduatesState extends State<ListofGraduates>
       backgroundColor: Color(0xffF5F5F5),
       body: Stack(
         children: [
-          //     Column(
-          //       // physics:
-          //       //     BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-          //       children: [
-          //         Padding(
-          //           padding: EdgeInsets.fromLTRB(_w / 17, _w / 20, 0, _w / 10),
-          //           child: Column(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Text(
-          //                 'Poly Campus',
-          //                 style: TextStyle(
-          //                   fontSize: 27,
-          //                   color: Colors.black.withOpacity(.6),
-          //                   fontWeight: FontWeight.w700,
-          //                 ),
-          //               ),
-          //               // SizedBox(height: _w / 35),
-          //               Text(
-          //                 'Here you can write something\nabout your app.',
-          //                 style: TextStyle(
-          //                   fontSize: 19,
-          //                   color: Colors.black.withOpacity(.5),
-          //                   fontWeight: FontWeight.w500,
-          //                 ),
-          //                 textAlign: TextAlign.start,
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          // searchBar(),
-          // SizedBox(height: _w / 20),
-          // groupOfCards(
-          //     student1.name,
-          //     'Example Text',
-          //     student1.image1,
-          //     PersonalPage1(),
-          //     student2.name,
-          //     'Example Text',
-          //     student2.image1,
-          //     PersonalPage1()),
-          // Padding(
-          //   padding: EdgeInsets.fromLTRB(_w / 20, 0, _w / 20, _w / 20),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       card(student1.name, 'Example Text', student1.image1,
-          //           PersonalPage1()),
-          //       card(student1.name, 'Example Text', student1.image1,
-          //           PersonalPage1()),
-          //     ],
-          //   ),
-          // ),
-
-          Center(
-            child: GridView.count(
-                crossAxisCount: 2,
-                scrollDirection: Axis.vertical,
-                children: List.generate(30, (index) {
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(_w / 17, _w / 20, 0, _w / 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Poly Campus',
-                          style: TextStyle(
-                            fontSize: 27,
-                            color: Colors.black.withOpacity(.6),
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        // SizedBox(height: _w / 35),
-                        Text(
-                          'Here you can write something\nabout your app.',
-                          style: TextStyle(
-                            fontSize: 19,
-                            color: Colors.black.withOpacity(.5),
-                            fontWeight: FontWeight.w500,
-                          ),
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
+          ListView(
+            physics:
+                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(_w / 17, _w / 20, 0, _w / 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Poly Campus',
+                      style: TextStyle(
+                        fontSize: 27,
+                        color: Colors.black.withOpacity(.6),
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  );
-                  return Center(
-                      child: card(student1.name, 'Example Text',
-                          student1.image1, PersonalPage1()));
-                })),
-          )
-          //     ],
-          //   ),
+                    // SizedBox(height: _w / 35),
+                    Text(
+                      'Here you can write something\nabout your app.',
+                      style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.black.withOpacity(.5),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
+                ),
+              ),
+              // searchBar(),
+              // SizedBox(height: _w / 20),
+              // groupOfCards(
+              //     student1.name,
+              //     'Example Text',
+              //     student1.image1,
+              //     PersonalPage1(),
+              //     student2.name,
+              //     'Example Text',
+              //     student2.image1,
+              //     PersonalPage1()),
+              // Padding(
+              //   padding: EdgeInsets.fromLTRB(_w / 20, 0, _w / 20, _w / 20),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       card(student1.name, 'Example Text', student1.image1,
+              //           PersonalPage1()),
+              //       card(student1.name, 'Example Text', student1.image1,
+              //           PersonalPage1()),
+              //     ],
+              //   ),
+              // ),
+              Padding(
+                //   padding: EdgeInsets.fromLTRB(_w / 20, 0, _w / 20, _w / 20),
+
+                padding: const EdgeInsets.all(8.0),
+                child: GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    children: List.generate(30, (index) {
+                      return Center(
+                          child: card(student1.name, 'Example Text',
+                              student1.image1, PersonalPage1()));
+                    })),
+              ),
+            ],
+          ),
           //   settingIcon(),
         ],
       ),
@@ -297,7 +275,7 @@ class _ListofGraduatesState extends State<ListofGraduates>
           height: _w / 1.8,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(color: Colors.black.withOpacity(.05), blurRadius: 50),
             ],
@@ -306,11 +284,11 @@ class _ListofGraduatesState extends State<ListofGraduates>
             children: [
               Container(
                 width: _w / 2.36,
-                height: _w / 2.1,
+                height: _w / 2.5,
                 decoration: const BoxDecoration(
                   color: Color(0xff5C71F3),
                   borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(20),
+                    top: Radius.circular(8),
                   ),
                 ),
                 alignment: Alignment.center,
