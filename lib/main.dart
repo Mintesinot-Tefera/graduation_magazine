@@ -1,66 +1,34 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:animations/animations.dart';
-import 'dart:async';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:myapp/carousel.dart';
-import 'package:myapp/gallery.dart';
-import 'package:myapp/homepage.dart';
-// import 'package:myapp/homepage.dart';
-import 'package:myapp/listofcampuses.dart';
-import 'package:myapp/listofgraduates2.dart';
-import 'package:myapp/mainlist3.dart';
-import 'package:myapp/mycustomui.dart';
-// import 'package:myapp/mainlist3.dart';
-// import 'package:myapp/mainlist.dart';
-// import 'package:myapp/mainlist3.dart';
-import 'package:myapp/personalpage.dart';
-import 'package:myapp/personalpage1.dart';
-import 'package:myapp/picgccommittee.dart';
-import 'package:myapp/pictrip.dart';
-import 'package:myapp/slidablecard.dart';
-// import 'package:myapp/mainlist.dart';
-// import 'package:myapp/mainlist2.dart';
-// import 'package:myapp/splashscreen.dart';
-// import 'package:myapp/splashscreen2.dart';
-// import 'package:myapp/slidablecard.dart';
-import 'package:myapp/ui1.dart';
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:myapp/onboardingscreen.dart';
+import 'package:myapp/splashscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  // Firebase.initializeApp();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
-  runApp(const MyApp());
+  final prefs = await SharedPreferences.getInstance();
+  final showHome = prefs.getBool("showHome") ?? false;
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+
+  runApp(MyApp(showHome: showHome));
 }
 
 //
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool showHome;
+  const MyApp({
+    Key? key,
+    required this.showHome,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         home: FutureBuilder(
-//             // Initialize FlutterFire
-//             future: Firebase.initializeApp(),
-//             builder: (context, snapshot) {
-//               // Check for errors
-//               if (snapshot.hasError) {
-//                 print("has error");
-//               }
-
-//               // Once complete, show your application
-//               if (snapshot.connectionState == ConnectionState.done) {
-//                 return HomePage();
-//               }
-//               return PersonalPage();
-//             }));
-//   }
-// }
-
     return MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -69,18 +37,19 @@ class MyApp extends StatelessWidget {
 
         // home: MyApp1(),
         // home: PersonalPage1()
-        home: HomePage()
+        // home: HomePage()
+        // home: Ui_2(),
+        // home: MyHomePage(),
         // home: ListofGraduates(),
         // home: Gallery(),
         // home: PicTrip(),
         // home: PicGcCommittee(),
-
+        // home: HomePage(),
         // home: MyCustomWidget(),
         // home: ui(),
         // home: PersonalPage(),
         // home: MainList3()
         // home: MyCustomUI()
-        // home: MyCustomUI()
-        );
+        home: showHome ? SplashScreen() : OnBoardingScreen());
   }
 }
