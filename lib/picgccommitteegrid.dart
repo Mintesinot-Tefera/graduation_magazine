@@ -139,7 +139,7 @@ class _PicGCCommitteeGridState extends State<PicGCCommitteeGrid> {
                                         child: AspectRatio(
                                           aspectRatio: 1 / 1,
                                           child: CachedNetworkImage(
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                             alignment:
                                                 FractionalOffset.topCenter,
                                             imageUrl: document['image'],

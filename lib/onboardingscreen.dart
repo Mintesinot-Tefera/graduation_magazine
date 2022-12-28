@@ -58,7 +58,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.width / 2,
                         child: const Text(
-                          "Need internet connection to first time data download. The data will download only when pages containing the data are opened",
+                          "You need an internet connection when you open the app for the first time. Only the pages you open will be loaded.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,

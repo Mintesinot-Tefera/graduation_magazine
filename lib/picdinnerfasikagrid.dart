@@ -132,7 +132,7 @@ class _PicDinnerFasikaGridState extends State<PicDinnerFasikaGrid> {
                                           child: AspectRatio(
                                               aspectRatio: 1 / 1,
                                               child: CachedNetworkImage(
-                                                fit: BoxFit.fill,
+                                                fit: BoxFit.cover,
                                                 alignment:
                                                     FractionalOffset.topCenter,
                                                 imageUrl: document['image'],

@@ -516,38 +516,68 @@ class AboutUsState extends State<AboutUs> {
                         Expanded(
                             flex: 1,
                             child: Center(
-                              child: GestureDetector(
-                                  child: const Text(
-                                    "@mintesinotteferamt",
-                                    style: TextStyle(
-                                        fontFamily: "JosefinSans",
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Icon(
+                                      Icons.telegram_outlined,
+                                      color: Colors.deepPurple.shade300,
+                                      // color: Colors.green.shade700,
+                                      size: 18,
+                                    ),
                                   ),
-                                  onTap: () async {
-                                    if (!await launchUrl(telegram1,
-                                        mode: LaunchMode.externalApplication)) {
-                                      throw 'Could not launch ';
-                                    }
-                                  }),
+                                  GestureDetector(
+                                      child: const Text(
+                                        "@mintesinotteferamt",
+                                        style: TextStyle(
+                                            fontFamily: "JosefinSans",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      onTap: () async {
+                                        if (!await launchUrl(telegram1,
+                                            mode: LaunchMode
+                                                .externalApplication)) {
+                                          throw 'Could not launch ';
+                                        }
+                                      }),
+                                ],
+                              ),
                             )),
                         Expanded(
                           flex: 1,
                           child: Center(
-                            child: GestureDetector(
-                                child: const Text(
-                                  "0932213918",
-                                  style: TextStyle(
-                                      fontFamily: "JosefinSans",
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Icon(
+                                    Icons.call,
+                                    color: Colors.deepPurple.shade300,
+                                    // color: Colors.green.shade700,
+                                    size: 18,
+                                  ),
                                 ),
-                                onTap: () async {
-                                  if (!await launchUrl(phoneno,
-                                      mode: LaunchMode.externalApplication)) {
-                                    throw 'Could not launch ';
-                                  }
-                                }),
+                                GestureDetector(
+                                    child: const Text(
+                                      "0932213918",
+                                      style: TextStyle(
+                                          fontFamily: "JosefinSans",
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    onTap: () async {
+                                      if (!await launchUrl(phoneno,
+                                          mode:
+                                              LaunchMode.externalApplication)) {
+                                        throw 'Could not launch ';
+                                      }
+                                    }),
+                              ],
+                            ),
                           ),
                         )
                       ],
