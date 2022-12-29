@@ -1,4 +1,4 @@
-# myapp
+# BDU Christian Students Fellowship 2014 Graduates Memories and Digital Magazine
 
 A new Flutter project.
 
